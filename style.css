@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Avenir LT Std'; /* Name of the font */
-    src: url('fonts/Avenir\ LT\ Std/'); /* Fallback */
+    src: url('fonts/Avenir\ LT\ Std/') format('opentype'); /* Fallback */
     font-weight: normal; /* Specify the weight if needed */
     font-style: normal;  /* Specify the style if needed */
 }
