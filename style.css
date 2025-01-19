@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'Avenir LT Std'; /* Name of the font */
+    src: url('fonts/Avenir\ LT\ Std/'); /* Fallback */
+    font-weight: normal; /* Specify the weight if needed */
+    font-style: normal;  /* Specify the style if needed */
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +16,7 @@ body,
 html {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Avenir LT Std';
     height: 100%;
     overflow-x: hidden;
 }
@@ -157,6 +165,7 @@ nav a {
     display: flex;
     justify-content: center;
     align-items: end;
+    padding-bottom: 28px;
 }
 
 #anchor-3 {
@@ -167,10 +176,30 @@ nav a {
     display: flex;
     justify-content: center;
     align-items: end;
+    padding-bottom: 24px;
 }
 
 .text-container h2 {
-    margin-bottom: 40px;
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 300;
+}
+.text-container p {
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 300;
+    margin-top: 40px;
+}
+.text-container h6{
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 800;
+    font-style: italic;
+}
+.text-container h5{
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 800;
 }
 
 .text-container button {
