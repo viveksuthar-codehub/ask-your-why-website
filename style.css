@@ -1,10 +1,9 @@
 @font-face {
-    font-family: 'Avenir LT Std'; /* Name of the font */
-    src: url('fonts/Avenir\ LT\ Std/') format('opentype'); /* Fallback */
-    font-weight: normal; /* Specify the weight if needed */
-    font-style: normal;  /* Specify the style if needed */
+    font-family: 'Avenir LT Std';
+    src: url('fonts/Avenir\ LT\ Std/') format('opentype');
+    font-weight: normal;
+    font-style: normal;
 }
-
 
 * {
     margin: 0;
@@ -12,36 +11,76 @@
     box-sizing: border-box;
 }
 
-body,
-html {
+body{
     margin: 0;
     padding: 0;
     font-family: 'Avenir LT Std';
     height: 100%;
     overflow-x: hidden;
+    /* cursor: none; */
 }
-
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
 
 /* width */
 *::-webkit-scrollbar {
-    width: 12px;
+    width: 16px;
 }
 
 /* Track */
 *::-webkit-scrollbar-track {
-    background: #ffffff;
+    background: #ebebeb;
 }
 
 /* Handle */
 *::-webkit-scrollbar-thumb {
     background: #FFA221;
     border-radius: 8px;
-    border: 2px solid #ffffff;
+    border: 3px solid #ebebeb;
 }
 
 /* Handle on hover */
 *::-webkit-scrollbar-thumb:hover {
     background: #FFBC5E;
+}
+
+
+/* Cursor Animation.................. */
+.cursor {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: transform 100ms ease-in-out;
+}
+
+.outer {
+    border: 1px solid #182916cc;
+    /* border: 2px solid #f7f7f770; */
+    mix-blend-mode: difference;
+    z-index: 100;
+}
+
+.inner {
+    background: #ffa200cc;
+    transition: 200ms ease-out;
+    z-index: 100;
+}
+
+.cursor.hover {
+    transform: translate(-50%, -50%) scale(2);
+    border: 1px solid var(#010208);
+    transition: transform 200ms ease-in-out;
+}
+
+.inner.hover {
+    /* border: 1px solid #f7f7f770; */
+    background: #ffffff;
+    mix-blend-mode: difference;
 }
 
 
@@ -75,6 +114,29 @@ nav a {
     font-size: 24px;
     font-weight: 500;
     margin-left: 16px;
+}
+nav li{
+    transition: all 0.3s ease 0s;
+}
+nav li:hover {
+    transform: translate(0, -5px);
+}
+nav li::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    height: 2px;
+    width: 100%;
+    left: 0;
+    background-color: #182916;
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+    transform: scaleX(0);
+    padding-left: 16px;
+}
+
+nav li:hover::after {
+    transform: scaleX(0.75);
 }
 
 .IntroContainer {
@@ -184,19 +246,22 @@ nav a {
     line-height: 36px;
     font-weight: 300;
 }
+
 .text-container p {
     font-size: 24px;
     line-height: 36px;
     font-weight: 300;
     margin-top: 40px;
 }
-.text-container h6{
+
+.text-container h6 {
     font-size: 24px;
     line-height: 36px;
     font-weight: 800;
     font-style: italic;
 }
-.text-container h5{
+
+.text-container h5 {
     font-size: 24px;
     line-height: 36px;
     font-weight: 800;
@@ -361,12 +426,17 @@ nav a {
 
 .learn-more {
     margin: 28px 0px 44px;
-    /* margin-top: 28px;
-    margin-left: 28px;  */
 }
-
 .learn-more a {
     text-decoration: none;
+}
+.learn-more img{
+    margin-left: 4px;
+    transition: all ease-in-out 0.2s;
+}
+.learn-more a:hover img {
+    transform: rotate(45deg) translateY(2px);
+    transition: all ease-in-out 0.2s;
 }
 
 .services-heading {
@@ -514,6 +584,9 @@ nav a {
 .footer-info-card h3 {
     margin-bottom: 20px;
 }
+.footer-info-card form {
+    display: inline-flex;
+}
 
 .footer-info-card input {
     width: 340px;
@@ -539,12 +612,24 @@ nav a {
     color: #182916;
     background-color: #FFB000;
     transition: all ease-in-out 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 12px;
+}
+.footer-info-card button img{
+    transform: translateY(1px);
+    transition: all ease-in-out 0.1s;
 }
 
 .footer-info-card button:hover {
     cursor: pointer;
-    background-color: #FFBC5E;
-    transition: all ease-in-out 0.3s;
+    /* background-color: #FFBC5E; */
+    /* transition: all ease-in-out 0.3s; */
+}
+.footer-info-card button:hover img {
+    transform: rotate(45deg) scale(0.85);
+    transition: all ease-in-out 0.2s;
 }
 
 .footer-horizontal-line {
@@ -556,7 +641,7 @@ nav a {
 
 .footer-bottom {
     width: 100%;
-    padding: 0px 100px;
+    padding: 0px 100px 32px;
     display: inline-flex;
     justify-content: space-between;
     align-items: center;

@@ -1,3 +1,45 @@
+const cursor = document.querySelectorAll(".cursor");
+    const links = document.querySelectorAll("a");
+    const ButtonOP = document.querySelectorAll("button");
+    const AnchorButton = document.querySelectorAll(".anchor");
+
+    window.addEventListener("mousemove", (e) => {
+
+        let x = e.pageX;
+        let y = e.pageY;
+
+        cursor.forEach(el => {
+            el.style.left = `${x}px`;
+            el.style.top = `${y}px`;
+
+            links.forEach(a => {
+                a.addEventListener("mouseenter", () => {
+                    el.classList.add("hover");
+                })
+                a.addEventListener("mouseleave", () => {
+                    el.classList.remove("hover");
+                })
+            })
+            ButtonOP.forEach(mybutton => {
+                mybutton.addEventListener("mouseenter", () => {
+                    el.classList.add("hover");
+                })
+                mybutton.addEventListener("mouseleave", () => {
+                    el.classList.remove("hover");
+                })
+            })
+            AnchorButton.forEach(mybutton => {
+                mybutton.addEventListener("mouseenter", () => {
+                    el.classList.add("hover");
+                })
+                mybutton.addEventListener("mouseleave", () => {
+                    el.classList.remove("hover");
+                })
+            })
+        })
+    })
+
+
 const anchors = document.querySelectorAll('.anchor');
 const textBoxes = document.querySelectorAll('.text-box');
 const defaultText = document.getElementById('text-default');
